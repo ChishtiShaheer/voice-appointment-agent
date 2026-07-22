@@ -41,7 +41,6 @@ def reschedule_appointment(appointment_id: str, collected: dict) -> dict:
         updates["appointment_date"] = collected["date"]
     if "time" in collected:
         updates["appointment_time"] = collected["time"]
-    updates["status"] = "booked"
     result = (
         _client.table(TABLE).update(updates).eq("id", appointment_id).execute()
     )
