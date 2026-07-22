@@ -12,6 +12,7 @@ def create_appointment(business_name: str, collected: dict) -> dict:
         "business_name": business_name,
         "full_name": collected["full_name"],
         "phone_number": collected["phone_number"],
+        "email": collected.get("email"),
         "appointment_type": collected["appointment_type"],
         "appointment_date": collected["date"],
         "appointment_time": collected["time"],
@@ -20,7 +21,6 @@ def create_appointment(business_name: str, collected: dict) -> dict:
     }
     result = _client.table(TABLE).insert(row).execute()
     return result.data[0]
-
 
 def find_latest_appointment_by_phone(phone_number: str) -> dict | None:
     result = (
