@@ -1,0 +1,20 @@
+{
+  "business_name": "Bright Smile Dental Clinic",
+  "business_type": "medical_clinic",
+  "timezone": "Asia/Karachi",
+  "working_hours": { "start": "09:00", "end": "18:00" },
+  "appointment_types": [
+    { "id": "checkup", "label": "General Checkup", "duration_minutes": 30 },
+    { "id": "cleaning", "label": "Teeth Cleaning", "duration_minutes": 45 },
+    { "id": "consultation", "label": "New Patient Consultation", "duration_minutes": 60 }
+  ],
+  "required_fields": [
+    { "key": "full_name", "prompt": "Can I get your full name?", "type": "text" },
+    { "key": "phone_number", "prompt": "What's the best phone number to reach you?", "type": "phone" },
+    { "key": "appointment_type", "prompt": "What kind of appointment is this for?", "type": "enum", "options_from": "appointment_types" },
+    { "key": "date", "prompt": "What date works for you?", "type": "date" },
+    { "key": "time", "prompt": "And what time?", "type": "time" },
+    { "key": "reason", "prompt": "Briefly, what's the reason for the visit?", "type": "text" }
+  ],
+  "confirmation_template": "Please confirm: {full_name}, a {appointment_type} on {date} at {time}. Shall I book this?"
+}

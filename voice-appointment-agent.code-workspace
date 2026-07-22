@@ -1,0 +1,34 @@
+{
+  "folders": [
+    { "path": "." }
+  ],
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Backend",
+        "type": "debugpy",
+        "request": "launch",
+        "module": "uvicorn",
+        "args": ["main:app", "--reload", "--port", "8000"],
+        "cwd": "${workspaceFolder}/backend",
+        "python": "${workspaceFolder}/venv/bin/python",
+        "justMyCode": true
+      },
+      {
+        "name": "Frontend",
+        "type": "node-terminal",
+        "request": "launch",
+        "command": "npm run dev",
+        "cwd": "${workspaceFolder}/frontend"
+      }
+    ],
+    "compounds": [
+      {
+        "name": "Both",
+        "configurations": ["Backend", "Frontend"],
+        "stopAll": true
+      }
+    ]
+  }
+}
